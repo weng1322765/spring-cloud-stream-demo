@@ -1,0 +1,20 @@
+spring:
+  rabbitmq:
+    addresses: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+  cloud:
+    stream:
+      bindings:
+        my-scs-output:     #自定义message channel名称
+          destination: scs-exchange     #rabbitMQ exchange名称
+          group: scs-queue   #rabbitMQ queue 名称
+          content-type: application/json
+        my-scs-input:     #自定义message channel名称
+          destination: scs-exchange
+          group: scs-queue
+          content-type: application/json
+      binders:
+        myRabbit: #自定义binder名称
+          type: rabbit
