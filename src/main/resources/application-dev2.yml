@@ -23,13 +23,13 @@ spring:
           content-type: application/json
         my-scs-kafka-output:
           binder: myKafka
-          destination: my-kafka
-          group: my-kafka
+          destination: my-scs-kafka-output
+          group: test-consumer-group
           content-type: application/json
         my-scs-kafka-input:
           binder: myKafka
-          destination: my-kafka
-          group: my-kafka
+          destination: my-scs-kafka-output
+          group: test-consumer-group
           content-type: application/json
       binders:
         myRabbit: #自定义默认binder名称

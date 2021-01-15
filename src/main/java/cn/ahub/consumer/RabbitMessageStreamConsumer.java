@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 public class RabbitMessageStreamConsumer {
 
     @StreamListener(RabbitMessageProcessor.IN_PUT)
-    @SendTo(KafkaMessageProcessor.OUT_PUT)
-//    @SendTo(RabbitMessageProcessor.OUT_PUT)
-    public Message recieveMessage(Message<String> message) {
+//    @SendTo(KafkaMessageProcessor.OUT_PUT)
+    @SendTo(RabbitMessageProcessor.OUT_PUT)
+    public String recieveMessage(Message<String> message) {
         System.out.println("===== I got the message: " + message);
-        return message;
+        return message.getPayload();
     }
 }
